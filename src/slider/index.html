@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+    
+<!-- Mirrored from level-ro.com/slider/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Oct 2019 00:20:59 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+        <title></title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<link href="http://level-ro.com/slider/css/diapo.css" rel="stylesheet" type="text/css" />
+<link href="https://fonts.googleapis.com/css?family=Kanit:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=thai" rel="stylesheet">
+ </head>
+<body>
+                <div class="slide">
+					<div class="pix_diapo">
+						<div data-thumb=""><img src="http://level-ro.com/slider/img/ex_slider.png">
+						</div>
+						<div data-thumb=""><img src="http://level-ro.com/slider/img/ex_slider.png">
+						</div>
+						<div data-thumb=""><img src="http://level-ro.com/slider/img/ex_slider.png">
+						</div>
+					</div>
+                </div>
+                       
+</body>
+<script type="text/javascript" src="http://level-ro.com/slider/js/jquery.min.js"></script>
+<script type="text/javascript" src="http://level-ro.com/slider/js/jquery-ui.js"></script>
+<script type="text/javascript" src="http://level-ro.com/slider/js/jquery.hoverIntent.minified.js"></script> 
+<script type="text/javascript" src="http://level-ro.com/slider/js/diapo.js"></script> 
+<script type="text/javascript" src="http://level-ro.com/slider/js/jquery.mobile.min.js"></script>
+<script type="text/javascript">
+    $(function () {
+        $(".pix_diapo").diapo();
+    });
+</script>
+<script type="text/javascript">
+var message="";
+function clickIE() {if (document.all) {(message);return false;}}
+function clickNS(e) {if 
+(document.layers||(document.getElementById&&!document.all)) {
+if (e.which==2||e.which==3) {(message);return false;}}}
+if (document.layers) 
+{document.captureEvents(Event.MOUSEDOWN);document.onmousedown=clickNS;}
+else{document.onmouseup=clickNS;document.oncontextmenu=clickIE;}
+ 
+document.oncontextmenu=new Function("return false")
+
+
+function disableselect(e){
+return false
+}
+ 
+function reEnable(){
+return true
+}
+ 
+//if IE4+
+document.onselectstart=new Function ("return false")
+ 
+//if NS6
+if (window.sidebar){
+document.onmousedown=disableselect
+document.onclick=reEnable
+}
+
+function MM_openBrWindow(theURL,winName,features) {
+  window.open(theURL,winName,features);
+}
+</script>
+
+<!-- Mirrored from level-ro.com/slider/index.php by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 27 Oct 2019 00:20:59 GMT -->
+</html>
