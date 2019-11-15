@@ -1,3 +1,4 @@
+/* eslint-disable */
 <template>
   <div>
     <navigation />
@@ -49,7 +50,7 @@
                         </li>
                         <li class="active">
                           <i class="fas fa-folder-open" aria-hidden="true"></i>
-                          ข้อมูลผู้ใช้
+                          ร้านค้า
                         </li>
                       </ol>
                     </div>
@@ -157,57 +158,35 @@
                       </div>
                     </div>
 
-                    <!-- User profile -->
+                    <!--Shop-->
                     <div class="col-lg-9 col-md-9 col-sm-9 col-xs-9">
-                      <div class="ui message piled segment">
-                          <!-- <div class="well"> -->
-                        <div class="ui main-header text">
-                          <span
-                            >บัญชีผู้ใช้งาน
-                            <small>User Profile</small></span
-                          >
-                        </div>
-                        <div
-                          id="alert_createuser"
-                          style="margin-top:20px"
-                        ></div>
-                        <hr>
-                        <div class="row">
-                            <div class="col-xs-4 alg-c">
-                                <p class="big-number">{{ cookie }}</p>
-                                <h1 class="clear">คุกกี้</h1>
+                     <h1 class="ui header">ร้านค้าลึกลับ</h1>
+                     <hr>
+                      <div class="ui cards">
+                        <div class="ui card" v-for="itm in items">
+                          <div class="content">
+                            <div class="header">{{ itm.itemName }}</div>
+                          </div>
+                          <div class="content imageWrapper">
+                            <img :src="itm.image" alt="" class="itemImage">
+                          </div>
+                          <div class="extra content">
+                            <div class="playerSelecter">
+                              <div class="">
+                                <label>ราคา : <span style="color:#FFA556"> {{ itm.price }} Poins </span></label>
+                              </div>
+                              <div class="">
+                                <p v-if="itm.specPlayer">ตัวละคร</p>
+                                <select class="ui fluid dropdown" v-if="itm.specPlayer" v-model="playerselected">
+                                  <option v-for="p in player" :value="p">{{ p }}</option>
+                                </select>
+                              </div>
                             </div>
-                            <div class="col-xs-4 alg-c">
-                                <p class="big-number" style="color:#FFA556">{{ pang }}</p>
-                                <h1 class="clear">ปัง</h1>
-                            </div>
-                            <div class="col-xs-4 alg-c">
-                                <p class="big-number">{{ point }}</p>
-                                <h1 class="clear">แต้ม Online</h1>
-                            </div>
+                            <button class="ui teal button">ซื้อ item</button>
+                          </div>
                         </div>
-                        <hr>
-                            <div class="row">
-                                <div class="col-lg-5 col-md-7 col-xs-7">
-                                    <img :src="image_link" v-on:click="upload" alt="profile" id="profilePicture">
-                                    <form action="">
-                                        <input type="file" name="picture" id="upload_img">
-                                        <input type="submit" value="Save" class="ui primary button" id="btnSubmit">
-                                    </form>
-                                    
-                                    <!-- <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxcqzCubT4DH-goKl_yvGD-Kj9aB8pergWyiW41tD0QGyKhJxAew&s" alt="" id="profilePicture"> -->
-                                </div>
-                                <div class="col-xs">
-                                    <h1>User Id : {{ id }}</h1>
-                                    <p>ชื่อตัวละคร : {{ name }}</p>
-                                    <p>คลับ : {{getClub()}}</p>
-                                    <p>คะแนนประจำเซิฟ : <span id="ranking">{{ player_poing }}</span></p>
-                                    <p>IP Address : {{ ip }}</p>
-                                </div>
-                                    
-                            </div>
-                        </div>
-                        </div>
+                      </div>
+                    </div>
                       <!-- </div> -->
                   </div>
                   <!----------------------------------------------------------------- End Text ------------------------------------------------------------->
@@ -227,88 +206,87 @@
 </template>
 
 <script>
-import Navigation from "@/components/Navigation";
-import PangyaFooter from "@/components/PangyaFooter";
-
-export default{
-    name: "UserProfile",
+export default {
+    name: "shop",
     components: {
-        Navigation,
-        PangyaFooter
+        
     },
     data(){
-        return{
-            id : "slowduck",
-            name: "เป็ดโหดกระโดดตี",
-            cookie: 35200,
-            pang: 3000,
-            point: 2000,
-            ip: "127.0.0.5",
-            club: "",
-            player_poing: 1466,
-            image_link: "https://i.pinimg.com/originals/6f/a6/a5/6fa6a5c61fe24473c75e68b3d32b2946.jpg"
-
-        }
-    },
-    methods:{
-        getClub(){
-            if(this.club == ""){
-                return "ไม่มีสังกัด"
-            }
-            return this.club
-        },
-        upload: function(){
-            document.getElementById("upload_img").click()
-        }
+      return {
+        playerselected: "",
+        player: [
+              "Nell",
+              "Lucia",
+              "Kaz",
+              "Arin",
+              "Kooh",
+              "Max",
+              "Cesillia",
+              "Arthur",
+              "Hana",
+              "Nuri"
+            ],
+        items:[
+          {
+            itemName: "Rainbow Glasses",
+            price: 120,
+            image: "https://www.mygame.in.th/uploadimage/Pangya/Red_UnderRim_Glasses.jpg",
+            specPlayer: true
+          },
+          {
+            itemName: "WT-PEP-100B",
+            price: 120,
+            image: "https://www.mygame.in.th/uploadimage/Pangya/Reward-poin11_NT_11-11-2014_2.jpg",
+            specPlayer: true
+          },
+          {
+            itemName: "WT-PEP-100B",
+            price: 120,
+            image: "https://www.mygame.in.th/uploadimage/Pangya/Reward-poin11_NT_11-11-2014_2.jpg",
+            specPlayer: true
+          } ,
+          {
+            itemName: "WT-PEP-100B",
+            price: 120,
+            image: "https://www.mygame.in.th/uploadimage/Pangya/Reward-poin11_NT_11-11-2014_2.jpg",
+            specPlayer: false
+          } ,
+          {
+            itemName: "WT-PEP-100B",
+            price: 120,
+            image: "https://www.mygame.in.th/uploadimage/Pangya/Reward-poin11_NT_11-11-2014_2.jpg",
+            specPlayer: false
+          }        
+        ],
+        
     }
+  }
 }
+
 </script>
 
-<style scoped>
-    @import url("https://fonts.googleapis.com/css?family=Mitr:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i&amp;subset=thai");
-    body{
-        font-family: "Mitr";
-        }
-    #profilePicture{
-        background: rgba(15, 28, 63, 0.125);
-        border-radius: 50%;
-        height: 20vmin;
-        object-fit: cover;
-        width: 20vmin;
-        transition: .3s;
-        left: 4em;
-        position: relative;
-        cursor: pointer;
-    }
-    #btnSubmit{
-        left: 35vmin;
-        position: relative;
-    }
-    /* #profilePicture:hover{
-        filter: brightness(.5);
-        opacity: .5;
-    } */
-
-    .big-number{
-        font-weight: 100;
-        font-size: 7rem;
-        margin: 0 !important;
-    }
-    .alg-c{
-        text-align: center;
-    }
-    .clear{
-        padding: 0;
-        margin: 0;
-    }
-    #ranking{
-        color:#7ACD65;
-    }
-    #upload_img{
-        visibility: hidden;
-    }
-
-
+<style>
+  .imageWrapper{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  .itemImage{
+    width: 200px;
+    height:150px;
+    object-fit: cover;
+  }
+  .playerSelecter{
+    padding: 0 0 1vmin 0;
+  }
+  .card{
+    margin-right: 2vmin !important;
+    width: 265px !important;
+  }
+  .header_table{
+    margin: -192.6em 0;
+  }
 </style>
 <style scoped src="@/assets/css/semantic.min.css"></style>
 <style scoped src="@/assets/css/sweetalert2.min.css"></style>

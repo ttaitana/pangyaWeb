@@ -7,6 +7,7 @@ import CreateAccount from "@/views/CreateAccount.vue";
 import Download from "@/views/Download.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import UserProfile from "@/views/UserProfile.vue";
+import Shop from "@/views/Shop.vue";
 
 import WOW from "wowjs";
 import AOS from "aos";
@@ -71,6 +72,11 @@ const routes = [
     path: "/profile",
     name: "profile",
     component: UserProfile
+  },
+  {
+    path: "/shop",
+    name: "shop",
+    component: Shop
   }
 ];
 
