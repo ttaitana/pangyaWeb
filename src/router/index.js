@@ -8,6 +8,7 @@ import Download from "@/views/Download.vue";
 import Dashboard from "@/views/Dashboard.vue";
 import UserProfile from "@/views/UserProfile.vue";
 import Shop from "@/views/Shop.vue";
+import CreateGuild from "@/views/CreateGuild.vue"
 
 import WOW from "wowjs";
 import AOS from "aos";
@@ -77,6 +78,11 @@ const routes = [
     path: "/shop",
     name: "shop",
     component: Shop
+  },
+  {
+    path: "/guild",
+    name: "guild",
+    component: CreateGuild
   }
 ];
 
